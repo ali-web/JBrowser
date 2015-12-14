@@ -46,6 +46,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 	 * browser page
 	 */
 	private static final long serialVersionUID = 1L;
+	private static final String iconDir = "static/icon/";
 	private JButton backJB;
 	private JButton forwardJB;
 	private JTabbedPane tab;
@@ -131,7 +132,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 		tabAccess.add(new Tab(pane, new JTextField(adress)));
 		if (adress != "")
 			loadPage(pane, adress);
-		tab.addTab("", new ImageIcon("newTab.png"), null);
+		tab.addTab("", new ImageIcon(iconDir + "newTab.png"), null);
 
 	}
 
@@ -146,10 +147,10 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 	private void addCloseButton(int i, String title) {
 		JPanel tab2 = new JPanel();
 		tab2.setOpaque(false);
-		ImageIcon closeXIcon = new ImageIcon("close.png");
+		ImageIcon closeXIcon = new ImageIcon(iconDir + "close.png");
 		MYJButton tabCloseButton = new MYJButton(closeXIcon, i);
 		tabCloseButton.setBorder(null);
-		tabCloseButton.setRolloverIcon(new ImageIcon("close2.png"));
+		tabCloseButton.setRolloverIcon(new ImageIcon(iconDir + "close2.png"));
 		tabCloseButton.setContentAreaFilled(false);
 		Dimension closeButtonSize = new Dimension(
 				closeXIcon.getIconWidth() + 2, closeXIcon.getIconHeight() + 2);
@@ -187,7 +188,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 		JToolBar toolsBar = new JToolBar();
 		toolsBar.setFloatable(false);
 		toolsBar.setBackground(Color.gray);
-		JButton back = new JButton(new ImageIcon("back2.png"));
+		JButton back = new JButton(new ImageIcon(iconDir + "back2.png"));
 		back.setBorder(null);
 		back.setEnabled(false);
 		back.setContentAreaFilled(false);
@@ -220,7 +221,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 			}
 		});
 		toolsBar.add(back);
-		back = new JButton(new ImageIcon("forward2.png"));
+		back = new JButton(new ImageIcon(iconDir + "forward2.png"));
 		back.setBorder(null);
 		forwardJB = back;
 		back.setEnabled(false);
@@ -253,7 +254,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 		back.setToolTipText("Forward");
 		toolsBar.add(back);
 		// **********************************************
-		back = new JButton(new ImageIcon("home.png"));
+		back = new JButton(new ImageIcon(iconDir + "home.png"));
 		back.setBorder(null);
 		back.addMouseListener(new MouseListener() {
 
@@ -306,7 +307,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 		back.setContentAreaFilled(false);
 		back.setToolTipText("Home");
 		toolsBar.add(back);
-		back = new JButton(new ImageIcon("refresh2.png"));
+		back = new JButton(new ImageIcon(iconDir + "refresh2.png"));
 		back.setBorder(null);
 		back.addMouseListener(new MouseListener() {
 			@Override
@@ -376,7 +377,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 			}
 		});
 		// **********************************************
-		back = new JButton(new ImageIcon("forward.png"));
+		back = new JButton(new ImageIcon(iconDir + "forward.png"));
 		back.setBorder(null);
 		back.setContentAreaFilled(false);
 		back.setToolTipText("Go");
@@ -438,10 +439,10 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 
 		if (tabee.getIndex() == tabee.size() - 1) {
 			(forwardJB).setEnabled(false);
-			(forwardJB).setIcon(new ImageIcon("forward2.png"));
+			(forwardJB).setIcon(new ImageIcon(iconDir + "forward2.png"));
 		} else {
 			(forwardJB).setEnabled(true);
-			(forwardJB).setIcon(new ImageIcon("forward3.png"));
+			(forwardJB).setIcon(new ImageIcon(iconDir + "forward3.png"));
 		}
 
 	}
@@ -478,10 +479,10 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 
 		if (tabee.getIndex() == 0) {
 			(backJB).setEnabled(false);
-			(backJB).setIcon(new ImageIcon("back2.png"));
+			(backJB).setIcon(new ImageIcon(iconDir + "back2.png"));
 		} else {
 			(backJB).setEnabled(true);
-			(backJB).setIcon(new ImageIcon("back3.png"));
+			(backJB).setIcon(new ImageIcon(iconDir + "back3.png"));
 		}
 
 	}
@@ -574,7 +575,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 		menuBar.add(menu_edit);
 		JMenuItem item = new JMenuItem("Undo");
 		item.setMnemonic('U');
-		item.setIcon(new ImageIcon("undo.png"));
+		item.setIcon(new ImageIcon(iconDir + "undo.png"));
 		item.setAccelerator(KeyStroke.getKeyStroke('Z', ActionEvent.CTRL_MASK));
 		menu_edit.add(item);
 		item.addMouseListener(new MouseListener() {
@@ -600,7 +601,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 		});
 		// ***************************************
 		item = new JMenuItem("Redo");
-		item.setIcon(new ImageIcon("redo.png"));
+		item.setIcon(new ImageIcon(iconDir + "redo.png"));
 		item.setMnemonic('R');
 		item.setAccelerator(KeyStroke.getKeyStroke('Y', ActionEvent.CTRL_MASK));
 		menu_edit.add(item);
@@ -631,7 +632,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 		// ***************************************
 		item = new JMenuItem("Copy");
 		item.setMnemonic('C');
-		item.setIcon(new ImageIcon("copy.png"));
+		item.setIcon(new ImageIcon(iconDir + "copy.png"));
 		item.setAccelerator(KeyStroke.getKeyStroke('C', ActionEvent.CTRL_MASK));
 		item.addMouseListener(new MouseListener() {
 
@@ -684,7 +685,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 			public void mouseClicked(MouseEvent arg0) {
 			}
 		});
-		item.setIcon(new ImageIcon("cut.png"));
+		item.setIcon(new ImageIcon(iconDir + "cut.png"));
 		item.setAccelerator(KeyStroke.getKeyStroke('X', ActionEvent.CTRL_MASK));
 		menu_edit.add(item);
 		// ***************************************
@@ -713,7 +714,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 			public void mouseClicked(MouseEvent arg0) {
 			}
 		});
-		item.setIcon(new ImageIcon("paste.png"));
+		item.setIcon(new ImageIcon(iconDir + "paste.png"));
 		item.setAccelerator(KeyStroke.getKeyStroke('V', ActionEvent.CTRL_MASK));
 		menu_edit.add(item);
 		menu_edit.addSeparator();
@@ -744,7 +745,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 			public void mouseClicked(MouseEvent arg0) {
 			}
 		});
-		item.setIcon(new ImageIcon("search.png"));
+		item.setIcon(new ImageIcon(iconDir + "search.png"));
 		item.setAccelerator(KeyStroke.getKeyStroke('F', ActionEvent.CTRL_MASK));
 		menu_edit.add(item);
 
@@ -788,12 +789,12 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 			public void mouseClicked(MouseEvent arg0) {
 			}
 		});
-		item.setIcon(new ImageIcon("back.png"));
+		item.setIcon(new ImageIcon(iconDir + "back.png"));
 		item.setAccelerator(KeyStroke.getKeyStroke('B', ActionEvent.ALT_MASK));
 		menu_view.add(item);
 		// ***************************************
 		item = new JMenuItem("Forward");
-		item.setIcon(new ImageIcon("forward.png"));
+		item.setIcon(new ImageIcon(iconDir + "forward.png"));
 		item.setMnemonic('F');
 		item.setAccelerator(KeyStroke.getKeyStroke('F', ActionEvent.ALT_MASK));
 		menu_view.add(item);
@@ -801,7 +802,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 		// ***************************************
 		item = new JMenuItem("Refresh");
 		item.setMnemonic('R');
-		item.setIcon(new ImageIcon("refresh.png"));
+		item.setIcon(new ImageIcon(iconDir + "refresh.png"));
 		item.setAccelerator(KeyStroke.getKeyStroke('R', ActionEvent.CTRL_MASK));
 		item.addMouseListener(new MouseListener() {
 
@@ -947,7 +948,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 		menu_file.addSeparator();
 		// ***************************************
 		item = new JMenuItem("Open");
-		item.setIcon(new ImageIcon("open.png"));
+		item.setIcon(new ImageIcon(iconDir + "open.png"));
 		item.setMnemonic('O');
 		item.setAccelerator(KeyStroke.getKeyStroke('O', ActionEvent.CTRL_MASK));
 		item.addMouseListener(new MouseListener() {
@@ -1013,7 +1014,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 		menu_file.add(item);
 		// *****************f**********************
 		item = new JMenuItem("Save As");
-		item.setIcon(new ImageIcon("save.png"));
+		item.setIcon(new ImageIcon(iconDir + "save.png"));
 		item.setMnemonic('S');
 		item.setAccelerator(KeyStroke.getKeyStroke('S', ActionEvent.CTRL_MASK));
 		menu_file.add(item);
@@ -1054,7 +1055,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 
 		// ***************************************
 		item = new JMenuItem("Print");
-		item.setIcon(new ImageIcon("print.png"));
+		item.setIcon(new ImageIcon(iconDir + "print.png"));
 		item.setMnemonic('P');
 		item.setAccelerator(KeyStroke.getKeyStroke('P', ActionEvent.CTRL_MASK));
 		menu_file.add(item);
@@ -1089,7 +1090,7 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 		menu_file.addSeparator();
 		// ***************************************
 		item = new JMenuItem("Exit");
-		item.setIcon(new ImageIcon("exit.png"));
+		item.setIcon(new ImageIcon(iconDir + "exit.png"));
 		item.setMnemonic('E');
 		menu_file.add(item);
 		item.addMouseListener(new MouseListener() {
