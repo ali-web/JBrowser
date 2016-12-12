@@ -549,6 +549,11 @@ public class JBrowser extends JFrame implements UndoableEditListener, Printable 
 		updateBackImage(null);
 		updateforwardImage();
 
+		// make sure URL starts with a valid protocol
+		if (! address.matches("^(http|https|ftp)://.*$")) {
+			address = "http://" + address;
+		}
+
 		try {
 			pane.setPage(address);
 		} catch (IOException e) {
